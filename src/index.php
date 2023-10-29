@@ -48,10 +48,9 @@
             <ul class="menu-wrap">
                 <?php foreach($events as $event) { ?>
                 <li class="menu">
-                    <a href="./detail/detail01.html">
+                    <a href="./detail/detail.php?event=<?= $event['id'] ?>">
                         <div class="menu-img">
-                            <img src="./assets/img/event/action/<?= $event['image'] ?>" alt="">
-                        </div>
+                            <img src="./assets/img/event/action/<?= $event['image'] ?>" alt=""></div>
                     </a>
                     <div class="menu-name-en"><?= $event['title'] ?></div>
                     <p class="menu-name-ja">評価</p>

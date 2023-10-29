@@ -1,3 +1,15 @@
+<?php
+    require_once('../dbconnect.php');
+    if(isset($_GET['event'])) {
+        $sql = 'SELECT * FROM events WHERE id = :id';
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(":id", (int)$_GET['event'], PDO::PARAM_INT);
+        $stmt->execute();
+        $event = $stmt->fetch(PDO::FETCH_ASSOC);
+        // 日時のフォーマットを変更
+        $event['date'] = date('Y年m月d日h:i', strtotime($event['date']));
+    }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,52 +25,56 @@
 </head>
 
 <body>
-    <header class="header03">
+    <header class="header01">
         <h1 class="logo"><img src="../assets/img/logo.svg" alt="ロゴ"></h1>
-    　　<div class="catch-copy3"><span>イベント詳細</span></div>
+        <div class="catch-copy">
+            <span>イベント詳細</span>
+        </div>
     </header>
 
     <main class="main">
         <div class="wrapper">
             <section class="section-access">
-            <h2 class="heading02"><span>本音の対話</span></h2>
-            <div class="access-img"><img src="../assets/img/event/etc/etc03.jpg" alt=""></div>
+            <h2 class="heading02"><span><?= $event['title'] ?></span></h2>
+            <div class="access-img">
+                <img src="../assets/img/event/action/<?= $event['image'] ?>" alt="">
+            </div>
             <address class="address">
                 <dl>
                     <P class="detail">目的</P>
                     <dd class="access-desc">
-                        <div class="access-name">本音を共有し、より強固な関係を築くとともに、仲も深めていく。</div>
+                        <div class="access-name"><?= $event['purpose'] ?></div>
                         <div class="address">
                             <div class="address-text">
                                 <div class="event-detail">
                                     <span>費用</span>
-                                    <span>￥0<span>
+                                    <span><?= $event['cost'] ?><span>
                                 </span></span></div>
                                 <div class="event-detail">
                                     <span>所要時間</span>
-                                    <span>1時間未満</span>
+                                    <span><?= $event['hours'] ?></span>
                                 </div>
                                 <div class="event-detail">
                                     <span>場所</span>
-                                    <span>HarborS　オンライン</span>
+                                    <span><?= $event['place'] ?></span>
                                 </div>
-                                <div class="event-detail">
+                                <!-- <div class="event-detail">
                                     <span>招待ポイント</span>
                                     <span>2pt</span>
                                 </div>
                                 <div class="event-detail">
                                     <span>参加ポイント</span>
                                     <span>1pt</span>
-                                </div>
+                                </div> -->
                                 <br>
                                 <div class="menu-name-en">
                                     <h2>招待文テンプレート</h2>
-                                    <span>開催日時：◯月◯日　△時△分〜△時△分<br></span>
-                                    <span>会場：住所、会場名、地図など<br></span>
-                                    <span>アクセス：最寄り駅、道順など<br></span>
-                                    <span>参加費：◯,◯◯◯円<br></span>
-                                    <span>持ち物：ex)楽しむ心<br></span>
-                                    <span>申し込み方法：ex)LINEの投票に参加してください！<br></span>
+                                    <span>開催日時：<?= $event['date'] ?>〜<br></span>
+                                    <span>会場：<?= $event['place'] ?><br></span>
+                                    <span>アクセス：<a href="<?= $event['access_url'] ?>"><?= $event['access'] ?></a><br></span>
+                                    <span>参加費：<?= $event['cost'] ?><br></span>
+                                    <span>持ち物：<?= $event['belongings'] ?><br></span>
+                                    <span>申し込み方法：<?= $event['participate'] ?><br></span>
                                 </div>
                                 
                                 
@@ -72,6 +88,7 @@
             </button>
         </section>
         </div><!-- wrapper -->
+        
     </main>
 
         <!-- footer -->
