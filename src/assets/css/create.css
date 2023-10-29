@@ -19,3 +19,8 @@ header {
   -webkit-transform: translate(0,-50%);
   transform: translate(0,-50%);
 }
+main {
+  margin: 10px auto;
+  width: 80%;
+  padding: 50px 0;
+}

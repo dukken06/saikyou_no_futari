@@ -1,5 +1,5 @@
 <?php
-    require_once('dbconnect.php');
+    require_once(dirname(__FILE__) . '/dbconnect.php');
     $sql = 'SELECT * FROM events';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();

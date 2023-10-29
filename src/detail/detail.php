@@ -1,5 +1,5 @@
 <?php
-    require_once('../dbconnect.php');
+    require_once(dirname(__FILE__) . '/../dbconnect.php');
     if(isset($_GET['event'])) {
         $sql = 'SELECT * FROM events WHERE id = :id';
         $stmt = $dbh->prepare($sql);
