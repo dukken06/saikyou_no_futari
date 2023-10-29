@@ -1,3 +1,10 @@
+<?php
+    require_once('dbconnect.php');
+    $sql = 'SELECT * FROM events';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -39,247 +46,30 @@
             <section class="menu-category">
             <h2 class="heading02 heading02--menu"><span>４期生の絆がマリアナ海溝イベント✨</span></h2>
             <ul class="menu-wrap">
+                <?php foreach($events as $event) { ?>
                 <li class="menu">
                     <a href="./detail/detail01.html">
-                    <div class="menu-img"><img src="./assets/img/event/action/event01.jpg" alt=""></div></a>
-                    <div class="menu-name-en">みんなでご飯</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★★☆<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★★★★</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★☆☆☆☆</span>
-                    </div>
-                </li>
-                <ul class="menu-wrap">
-                    <li class="menu">
-                        <a href="./detail/detail02.html">
-                        <div class="menu-img"><img src="./assets/img/event/action/event02.jpg" alt=""></div></a>
-                        <div class="menu-name-en">カラオケ</div>
-                        <p class="menu-name-ja">評価</p>
-                        <div class="menu-price">
-                            <span>仲良くなれ度</span>
-                            <span>★★★★☆<span>
-                        </span></span></div>
-                        <div class="menu-price">
-                            <span>誘いやすさ</span>
-                            <span>★★★★☆</span>
+                        <div class="menu-img">
+                            <img src="./assets/img/event/action/<?= $event['image'] ?>" alt="">
                         </div>
-                        <div class="menu-price">
-                            <span>コード力</span>
-                            <span>★☆☆☆☆</span>
-                        </div>
-                    </li>
-                <ul class="menu-wrap">
-                    <li class="menu">
-                        <a href="./detail/detail03.html">
-                        <div class="menu-img"><img src="./assets/img/event/action/event03.jpeg" alt=""></div></a>
-                        <div class="menu-name-en">ショッピング</div>
-                        <p class="menu-name-ja">評価</p>
-                        <div class="menu-price">
-                            <span>仲良くなれ度</span>
-                            <span>★★★☆☆<span>
-                        </span></span></div>
-                        <div class="menu-price">
-                            <span>誘いやすさ</span>
-                            <span>★★★☆☆</span>
-                        </div>
-                        <div class="menu-price">
-                            <span>コード力</span>
-                            <span>★☆☆☆☆</span>
-                        </div>
-                    </li>
-                    <ul class="menu-wrap">
-                        <li class="menu">
-                            <a href="detail/detail04.html">
-                            <div class="menu-img"><img src="./assets/img/event/action/event04.jpg" alt=""></div></a>
-                            <div class="menu-name-en">ボウリング</div>
-                            <p class="menu-name-ja">評価</p>
-                            <div class="menu-price">
-                                <span>仲良くなれ度</span>
-                                <span>★★★★☆<span>
-                            </span></span></div>
-                            <div class="menu-price">
-                                <span>誘いやすさ</span>
-                                <span>★★★★☆</span>
-                            </div>
-                            <div class="menu-price">
-                                <span>コード力</span>
-                                <span>★☆☆☆☆</span>
-                            </div>
-                        </li>
-                        <ul class="menu-wrap">
-                <li class="menu">
-                    <a href="detail/detail05.html">
-                    <div class="menu-img"><img src="./assets/img/event/action/event05.jpg" alt=""></div></a>
-                    <div class="menu-name-en">お散歩</div>
+                    </a>
+                    <div class="menu-name-en"><?= $event['title'] ?></div>
                     <p class="menu-name-ja">評価</p>
                     <div class="menu-price">
                         <span>仲良くなれ度</span>
-                        <span>★★★★☆<span>
-                        </span></span></div>
+                        <span><?= $event['friendly'] ?></span>
+                    </div>
                     <div class="menu-price">
                         <span>誘いやすさ</span>
-                        <span>★★★★★</span>
+                        <span><?= $event['easy'] ?></span>
                     </div>
                     <div class="menu-price">
                         <span>コード力</span>
-                        <span>★☆☆☆☆</span>
+                        <span><?= $event['code'] ?></span>
                     </div>
                 </li>
-                            <ul class="menu-wrap">
-                <li class="menu">
-                    <a href="detail/detail06.html">
-                    <div class="menu-img"><img src="./assets/img/event/action/event06.jpg" alt=""></div></a>
-                    <div class="menu-name-en">ドライブ</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★★★<span>
-                        </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★☆☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★☆☆☆☆</span>
-                    </div>
-                </li>
-                <h2 class="heading02 heading02--menu"><span>４期生のコード力爆上げイベント✨</span></h2>
-                <li class="menu">
-                    <a href="detail/detail07.html">
-                    <div class="menu-img"><img src="./assets/img/event/code/code01.jpg" alt=""></div></a>
-                    <div class="menu-name-en">カリキュラム進行</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★☆☆<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★★☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★★★☆☆</span>
-                    </div>
-                </li>
-                <li class="menu">
-                    <a href="detail/detail08.html">
-                    <div class="menu-img"><img src="./assets/img/event/code/code02.jpeg" alt=""></div></a>
-                    <div class="menu-name-en">超横もく</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★★☆<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★★☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★★★★☆</span>
-                    </div>
-                </li>
-                <li class="menu">
-                    <a href="detail/detail09.html">
-                    <div class="menu-img"><img src="./assets/img/detail/detail04.png" alt=""></div></a>
-                    <div class="menu-name-en">ミニハッカソン</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★★☆<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★★☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★★★★★</span>
-                    </div>
-                </li>
-                <li class="menu">
-                    <a href="detail/detail10.html">
-                    <div class="menu-img"><img src="./assets/img/event/code/code04.jpeg" alt=""></div></a>
-                    <div class="menu-name-en">共同開発</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★☆☆<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★★☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★★★★★</span>
-                    </div>
-                </li>
-                <h2 class="heading02 heading02--menu"><span>その他のイベント✨</span></h2>
-                <li class="menu">
-                    <a href="detail/detail12.html">
-                    <div class="menu-img"><img src="./assets/img/event/etc/etc02.jpg" alt=""></div></a>
-                    <div class="menu-name-en">七つの習慣</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★★☆<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>★★★☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★☆☆☆☆</span>
-                    </div>
-                </li>
-                <li class="menu">
-                    <a href="detail/detail13.html">
-                        <div class="menu-img"><img src="./assets/img/detail/detail03.jpg" alt=""></div></a>
-                        <div class="menu-name-en">本音の対話</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>★★★★★<span>
-                        </span></span></div>
-                        <div class="menu-price">
-                            <span>誘いやすさ</span>
-                        <span>★★☆☆☆</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>★☆☆☆☆</span>
-                    </div>
-                </li>
-                <li class="menu">
-                    <a href="detail/detail11.html">
-                    <div class="menu-img"><img src="./assets/img/event/etc/etc01.jpg" alt=""></div></a>
-                    <div class="menu-name-en">Customize Event</div>
-                    <p class="menu-name-ja">評価</p>
-                    <div class="menu-price">
-                        <span>仲良くなれ度</span>
-                        <span>？？？？？<span>
-                    </span></span></div>
-                    <div class="menu-price">
-                        <span>誘いやすさ</span>
-                        <span>？？？？？</span>
-                    </div>
-                    <div class="menu-price">
-                        <span>コード力</span>
-                        <span>？？？？？</span>
-                    </div>
-                </li>
+                <?php } ?>
+            </ul>
             </section>
             <!-- ranking -->
             <section class="ranking">
