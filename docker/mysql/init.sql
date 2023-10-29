@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS futari;
+
+CREATE DATABASE futari;
+USE futari;
+
+CREATE TABLE events (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  friendly INT NOT NULL,
+  easy INT NOT NULL,
+  code INT NOT NULL,
+  purpose VARCHAR(255) NOT NULL,
+  cost INT NOT NULL,
+  hours INT NOT NULL,
+  place VARCHAR(255) NOT NULL,
+  date DATE NOT NULL,
+  acccess VARCHAR(255) NOT NULL,
+  acccess_url VARCHAR(255) NOT NULL,
+  belongings VARCHAR(255) NOT NULL,
+  participate VARCHAR(255) NOT NULL
+);
