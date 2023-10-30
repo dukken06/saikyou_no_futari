@@ -11,7 +11,13 @@
       // ディレクトリを指定する
       $image_path = dirname(__FILE__) . '/../img/event/action/' . $image_name;
       move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
-      $stmt = $dbh->prepare('INSERT INTO events(title, image, friendly, easy, code, purpose, cost, hours, place, date, access, access_url, belongings, participate) VALUES(title=:title, image=:image, friendly=:friendly, easy=:easy, code=:code, purpose=:purpose, cost=:cost, hours=:hours, place=:place, date=:date, access=:access, access_url=:access_url, belongings=:belongings, participate=:participate)');
+      $date = DateTime::createFromFormat('Y-m-d', $_POST['date']);
+      if ($date === false) {
+        echo '日時の形式が正しくありません。';
+        exit;
+      }
+      $formatted_date = $date->format('Y-m-d');
+      $stmt = $dbh->prepare('INSERT INTO events(title, image, friendly, easy, code, purpose, cost, hours, place, date, access, access_url, belongings, participate) VALUES(:title, :image, :friendly, :easy, :code, :purpose, :cost, :hours, :place, :date, :access, :access_url, :belongings, :participate)');
       $stmt->execute([
         ':title' => $_POST['title'],
         ':image' => $image_name,
@@ -22,7 +28,7 @@
         ':cost' => $_POST['cost'],
         ':hours' => $_POST['hours'],
         ':place' => $_POST['place'],
-        ':date' => $_POST['date'],
+        ':date' => $formatted_date,
         ':access' => $_POST['access'],
         ':access_url' => $_POST['access_url'],
         ':belongings' => $_POST['belongings'],
