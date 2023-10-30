@@ -93,8 +93,8 @@
           placeholder="開催場所を入力してください">
       </div>
       <div class="mb-4">
-        <label for="date" class="form-label font-semibold">開催日時：</label>
-        <input type="datetime-local" name="date" id="date"
+        <label for="date" class="form-label font-semibold">開催日程：</label>
+        <input type="date" name="date" id="date"
           class="form-control required h-8 px-2 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-purple-500"
           placeholder="開催日時を入力してください">
       </div>
