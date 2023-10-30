@@ -21,8 +21,14 @@
       <span>イベント作成ページ</span>
     </div>
   </header>
-  <main>
-
+  <main class="mb-10">
+    <div class="complete mb-20">
+      <h2 class="mb-10 font-semibold text-lg text-center">イベント登録完了</h2>
+      <p class="text-center">イベントの登録が完了しました。</p>
+      <div class="text-center mt-8 bg-blue-600 py-2 px-2 rounded-md">
+        <a href="index.php" class="btn btn-primary mt-4 text-white">イベント一覧へ</a>
+      </div>
+    </div>
   </main>
   <footer>
     <div class="footer-inner">

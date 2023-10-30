@@ -35,7 +35,7 @@
         ':participate' => $_POST['participate']
       ]);
       $lastInsertId = $dbh->lastInsertId();
-      header("Location: ../../create_event.php");
+      header("Location: ../../complete.php");
     } else {
       echo 'ファイルがアップロードされていません。';
     }

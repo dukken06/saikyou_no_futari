@@ -7,7 +7,7 @@
         $stmt->execute();
         $event = $stmt->fetch(PDO::FETCH_ASSOC);
         // 日時のフォーマットを変更
-        $event['date'] = date('Y年m月d日h:i', strtotime($event['date']));
+        $event['date'] = date('Y年m月d日', strtotime($event['date']));
     }
 ?>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@
                                 <br>
                                 <div class="menu-name-en">
                                     <h2>招待文テンプレート</h2>
-                                    <span>開催日時：<?= $event['date'] ?>〜<br></span>
+                                    <span>開催日時：<?= $event['date'] ?><br></span>
                                     <span>会場：<?= $event['place'] ?><br></span>
                                     <span>アクセス：<a href="<?= $event['access_url'] ?>"><?= $event['access'] ?></a><br></span>
                                     <span>参加費：<?= $event['cost'] ?><br></span>
