@@ -1,0 +1,10 @@
+.create_event {
+  background-color: #2e79ba;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  z-index: 100000;
+}
