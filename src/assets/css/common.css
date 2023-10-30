@@ -1,0 +1,135 @@
+/* body{
+    background: linear-gradient(to right,#f0efef,#6592ba,#4e4e4e,#2d2d2d);
+} */
+
+.header{
+    position: relative;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 40vh;
+    background: url(../img/mainvisual.webp) no-repeat center center/cover;
+}
+
+/* .text{
+    margin-left: 400px;
+}  */
+
+.logo{
+    width: 170px;
+    padding: 10px;
+    background-color: rgba(243, 238, 238, 0.5);
+    border-radius: 40%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.catch-copy, .page-title {
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 7vw;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+
+.catch-copy2 {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    color: #d117ca;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 7vw;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+
+.catch-copy3 {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    color: #050405;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 7vw;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+
+.catch-copy span, .page-title span{
+    border-bottom: 3px solid #fff;
+    padding-bottom: 4px;
+}
+
+.catch-copy2 span{
+    border-bottom: 3px solid #060606;
+    padding-bottom: 4px;
+}
+
+.catch-copy3 span{
+    border-bottom: 3px solid #060606;
+    padding-bottom: 4px;
+}
+
+/* .body{
+    background: linear-gradient(to right,#f0efef,#000);
+
+}
+/* footer */
+/**
+ * 2.2 - フッター
+ */
+.footer {
+    width: 100%;
+    height: 50px;
+    /* padding-top: 20px;  */
+    text-align: center; 
+    position: relative;
+    bottom:0;
+    margin-bottom: -20px;
+}
+.footer-inner {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    gap: 12px;
+}
+.footer-corporateLink {
+    color: #666666;
+    font-size: 14px;
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+}
+
+.footer-snslist {
+    display: flex; 
+    gap: 12px;
+}
+.footer-snsitem img{
+    width:30px;
+    height: 30px;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 12px; /* 余白の設定（Week03で扱います） */
+    border-top: solid 1px #F7F9FB;
+    color: #ADADAD;
+    font-size: 10px;
+    padding: 12px; /* 余白の設定（Week03で扱います） */
+}
+
